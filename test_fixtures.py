@@ -16,3 +16,16 @@ def more_data(some_data):
 
 def test_two_fixtures(some_data, more_data):
     assert len(some_data) == len(more_data)
+
+
+@pytest.fixture(scope='session')
+def expensive_data():
+    return list(range(10))
+
+
+def test_with_expensive_data(expensive_data):
+    assert len(expensive_data) == 10
+
+
+def test_with_expensive_data2(expensive_data):
+    assert len(expensive_data) == 10
