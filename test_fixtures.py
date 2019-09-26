@@ -29,3 +29,12 @@ def test_with_expensive_data(expensive_data):
 
 def test_with_expensive_data2(expensive_data):
     assert len(expensive_data) == 10
+
+
+@pytest.fixture(params=[1, 2, 3])
+def some_number(request):
+    return request.param
+
+
+def test_parametrized_fixture(some_number):
+    assert some_number > 0
