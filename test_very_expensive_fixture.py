@@ -10,14 +10,14 @@ configurations = [
 
 @pytest.fixture(params=configurations, scope="session")
 def options(request):
-    time.sleep(2)
+    time.sleep(1)
     return request.param
 
 def test_with_options(options):
-    assert options == 17
+    assert "a" in options
 
 def test_with_options_2(options):
-    assert options == 17
+    assert "a" in options
 
 def test_with_options_3(options):
-    assert options == 17
+    assert "a" in options
